@@ -39,23 +39,23 @@ class Handler(BaseHTTPRequestHandler):
         
     def do_POST(self):
     	global firebase
-            if self.path == '/spending':
-                content_length = int(self.headers.getheader('content-length', 0))
-                post_data = self.rfile.read(content_length)
-                print post_data
-                result = firebase.post('/ais-accounting/users', post_data)
-                print result
-                self.send_response(200)
-                self.end_headers()
+        if self.path == '/spending':
+            content_length = int(self.headers.getheader('content-length', 0))
+            post_data = self.rfile.read(content_length)
+            print post_data
+            result = firebase.post('/ais-accounting/users', post_data)
+            print result
+            self.send_response(200)
+            self.end_headers()
 
-            elif self.path == '/sales':
-                content_length = int(self.headers.getheader('content-length', 0))
-                post_data = self.rfile.read(content_length)
-                print post_data
-                result = firebase.post('/ais-accounting/users', post_data)
-                print result
-                self.send_response(200)
-                self.end_headers()
+        elif self.path == '/sales':
+            content_length = int(self.headers.getheader('content-length', 0))
+            post_data = self.rfile.read(content_length)
+            print post_data
+            result = firebase.post('/ais-accounting/users', post_data)
+            print result
+            self.send_response(200)
+            self.end_headers()
         
         #self._set_headers()
         #self.wfile.write("<html><body><h1>POST!</h1></body></html>")
